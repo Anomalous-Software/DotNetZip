@@ -1644,6 +1644,22 @@ namespace Ionic.Zip
         }
 
 
+        public ZipEntry UpdateEntry(string entryName, WriteDelegate writeDelegate)
+        {
+            string directoryPathInArchive = null;
+            if (entryName.IndexOf('\\') != -1)
+            {
+                directoryPathInArchive = Path.GetDirectoryName(entryName);
+                entryName = Path.GetFileName(entryName);
+            }
+            string key = ZipEntry.NameInArchive(entryName, directoryPathInArchive);
+
+            if (this[key] != null)
+                this.RemoveEntry(key);
+
+            return AddEntry(entryName, writeDelegate);
+        }
+
 
 
         /// <summary>
