@@ -1584,7 +1584,7 @@ namespace Ionic.Zip
             if (this[key] != null)
                 this.RemoveEntry(key);
 
-            return AddEntry(entryName, content, encoding);
+            return AddEntry(key, content, encoding);
         }
 
 
@@ -1640,7 +1640,7 @@ namespace Ionic.Zip
             if (this[key] != null)
                 this.RemoveEntry(key);
 
-            return AddEntry(entryName, stream);
+            return AddEntry(key, stream);
         }
 
 
@@ -1657,7 +1657,7 @@ namespace Ionic.Zip
             if (this[key] != null)
                 this.RemoveEntry(key);
 
-            return AddEntry(entryName, writeDelegate);
+            return AddEntry(key, writeDelegate);
         }
 
 
@@ -1715,7 +1715,7 @@ namespace Ionic.Zip
             if (this[key] != null)
                 this.RemoveEntry(key);
 
-            return AddEntry(entryName, byteContent);
+            return AddEntry(key, byteContent);
         }
 
 
