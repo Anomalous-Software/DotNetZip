@@ -653,7 +653,8 @@ namespace Ionic.Zip
 #endif
         private static uint _HRForException(System.Exception ex1)
         {
-            return unchecked((uint)System.Runtime.InteropServices.Marshal.GetHRForException(ex1));
+			return 0;
+            //return unchecked((uint)System.Runtime.InteropServices.Marshal.GetHRForException(ex1));
         }
 
     }

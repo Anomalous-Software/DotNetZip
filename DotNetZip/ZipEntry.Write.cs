@@ -2299,12 +2299,12 @@ namespace Ionic.Zip
             {
                 int tid = System.Threading.Thread.CurrentThread.GetHashCode();
 #if !NETCF
-                Console.ForegroundColor = (ConsoleColor)(tid % 8 + 8);
+                //Console.ForegroundColor = (ConsoleColor)(tid % 8 + 8);
 #endif
                 Console.Write("{0:000} ZipEntry.Write ", tid);
                 Console.WriteLine(format, varParams);
 #if !NETCF
-                Console.ResetColor();
+                //Console.ResetColor();
 #endif
             }
         }

@@ -1047,10 +1047,10 @@ namespace Ionic.Zlib
                 lock(_outputLock)
                 {
                     int tid = Thread.CurrentThread.GetHashCode();
-                    Console.ForegroundColor = (ConsoleColor) (tid % 8 + 8);
+                    //Console.ForegroundColor = (ConsoleColor) (tid % 8 + 8);
                     Console.Write("{0:000} PDOS ", tid);
                     Console.WriteLine(format, varParams);
-                    Console.ResetColor();
+                    //Console.ResetColor();
                 }
             }
         }
