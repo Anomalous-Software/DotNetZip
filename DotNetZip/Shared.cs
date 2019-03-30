@@ -594,13 +594,13 @@ namespace Ionic.Zip
                 catch (System.IO.IOException ioexc1)
                 {
 
-#if !NETCF
-                    // Check if we can call GetHRForException,
-                    // which makes unmanaged code calls.
-                    var p = new SecurityPermission(SecurityPermissionFlag.UnmanagedCode);
-                    if (p.IsUnrestricted())
-                    {
-#endif
+//#if !NETCF
+//                    // Check if we can call GetHRForException,
+//                    // which makes unmanaged code calls.
+//                    var p = new SecurityPermission(SecurityPermissionFlag.UnmanagedCode);
+//                    if (p.IsUnrestricted())
+//                    {
+//#endif
                         uint hresult = _HRForException(ioexc1);
                         if (hresult != 0x80070021)  // ERROR_LOCK_VIOLATION
                             throw new System.IO.IOException(String.Format("Cannot read file {0}", FileName), ioexc1);
@@ -612,16 +612,16 @@ namespace Ionic.Zip
                         // aggregate time waited after 10 retries: 250 + 55*550 = 30.5s
                         System.Threading.Thread.Sleep(250 + retries * 550);
 
-#if !NETCF
-                    }
-                    else
-                    {
-                        // The permission.Demand() failed. Therefore, we cannot call
-                        // GetHRForException, and cannot do the subtle handling of
-                        // ERROR_LOCK_VIOLATION.  Just bail.
-                        throw;
-                    }
-#endif
+//#if !NETCF
+//                    }
+//                    else
+//                    {
+//                        // The permission.Demand() failed. Therefore, we cannot call
+//                        // GetHRForException, and cannot do the subtle handling of
+//                        // ERROR_LOCK_VIOLATION.  Just bail.
+//                        throw;
+//                    }
+//#endif
 
                 }
             }
